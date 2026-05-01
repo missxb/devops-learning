@@ -459,7 +459,7 @@ receivers:
 
   - name: 'warning-receiver'
     slack_configs:
-      - api_url: 'https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX'
+      - api_url: '${SLACK_WEBHOOK_URL}'  # 使用环境变量
         channel: '#monitoring-warnings'
         title: '{{ .GroupLabels.alertname }}'
         text: '{{ range .Alerts }}{{ .Annotations.description }}{{ end }}'
